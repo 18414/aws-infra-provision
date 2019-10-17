@@ -1,0 +1,24 @@
+---
+- name: Create new partition 
+  become: yes 
+  parted: 
+    device: /dev/xvdf
+    number: 1
+    state: present
+  register: parted_output
+  
+- name: Format new partition 
+  become: yes 
+  filesystem: 
+    fstype: ext4
+    dev: /dev/xvdf1
+
+- name: Mount web content volume
+  become: yes
+  mount: 
+    path: /var/www/
+    src: /dev/xvdf1
+    fstype: ext4
+    state: mounted
+    
+ 

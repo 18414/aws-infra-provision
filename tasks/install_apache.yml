@@ -1,0 +1,11 @@
+---
+- name: Install apache
+  yum: 
+    name: httpd 
+    state: latest
+
+- name: Collect Ansible facts
+  ec2_metadata_facts: 
+
+
+  

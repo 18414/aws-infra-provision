@@ -1,0 +1,9 @@
+---
+- name: Add host to inventory
+  add_host: 
+    hostname: "{{ item.public_ip }}"
+    groupname: "{{ webgroup }}"
+    ansible_ssh_common_args: "-o StrictHostKeyChecking=no"
+  loop: "{{ ec2_instances }}"
+ 
+    
