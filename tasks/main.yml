@@ -1,2 +1,32 @@
 ---
 # tasks file for aws-infra-provision
+delegate_to: localhost
+include_tasks: create_ebs_vol.yml
+
+delegate_to: localhost
+include_tasks: create_key.yml
+
+delegate_to: localhost
+include_tasks: create_ebs_vol.yml
+
+delegate_to: localhost
+include_tasks: launch_ec2.yml
+
+delegate_to: localhost
+include_tasks: attach_vol.yml
+
+delegate_to: localhost
+include_tasks: create_inv.yml
+
+delegate_to: webgroup 
+include_tasks: configure_instance.yml
+
+delegate_to: webgroup 
+include_tasks: create_new_part.yml
+
+delegate_to: webgroup 
+include_tasks: install_apache.yml 
+
+delegate_to: localhost
+include_tasks: crete_ami.yml
+ 
