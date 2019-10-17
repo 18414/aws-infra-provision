@@ -1,0 +1,9 @@
+---
+- name: Create AWS keypair using  ANSIBLE KEY
+  ec2_key: 
+    aws_access_key: "{{ AWS_ACCESS_KEY_ID }}"
+    aws_secret_key: "{{ AWS_SECRET_ACCESS_KEY }}"
+    ec2_region: "{{ AWS_REGION }}"
+    name: ganesha_key
+    key_material: "{{ lookup('file', '/home/ansible/.ssh/id_rsa.pub') }}"
+    

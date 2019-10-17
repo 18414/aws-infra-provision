@@ -1,2 +1,7 @@
 ---
 # vars file for aws-infra-provision
+#
+default_vpc_subnet: subnet-8b371aec
+BASE_AMI: ami-098bb5d92c8886ca1
+AWS_ZONE: us-east-1a
+

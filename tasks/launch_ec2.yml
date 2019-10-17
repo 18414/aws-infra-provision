@@ -1,0 +1,19 @@
+---
+- name: Launch ec2 instance 
+  ec2: 
+    aws_access_key: "{{ AWS_ACCESS_KEY_ID }}"
+    aws_secret_key: "{{ AWS_SECRET_ACCESS_KEY }}"
+    ec2_region: "{{ AWS_REGION }}"
+    instance_type: t2.micro 
+    keypair: ansible-key
+    image: "{{ BASE_AMI }}"
+    zone: "{{ AWS_ZONE }}"
+    assign_public_ip: yes
+    vpc_subnet_id: "{{ default_vpc_subnet }}"
+    wait: true 
+    count: 1
+    instance_tags: 
+      Name: webserver
+      image: yes
+    register: ec2
+    
